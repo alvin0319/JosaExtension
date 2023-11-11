@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Comparison operation \"\\>\\=\" between int\\<0, max\\> and 0 is always true\\.$#"
+			count: 1
+			path: src/JosaFormatter.php
+
+		-
+			message: "#^Dead catch \\- Exception is never thrown in the try block\\.$#"
+			count: 1
+			path: src/util/ParseResult.php

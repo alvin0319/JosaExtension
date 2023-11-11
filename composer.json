@@ -1,0 +1,41 @@
+{
+	"name": "alvin0319/josa-extension",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "alvin0319",
+			"email": "me@minjae.dev"
+		}
+	],
+	"type": "library",
+	"description": "Josa extension for Korean language.",
+	"require": {
+		"php": ">=8.2",
+		"ext-mbstring": "*"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^10.4",
+		"phpstan/phpstan": "^1.10",
+		"friendsofphp/php-cs-fixer": "^3.38"
+	},
+	"autoload": {
+		"psr-4": {
+			"alvin0319\\JosaExtension\\": "src/"
+		}
+	},
+	"extra": {
+		"virion": {
+			"spec": "3.0",
+			"namespace-root": "alvin0319\\JosaExtension"
+		}
+	},
+	"scripts": {
+		"test": "vendor/bin/phpunit --bootstrap vendor/autoload.php tests/",
+		"lint": "vendor/bin/phpstan analyse src --memory-limit=2G",
+		"generate-baseline": "vendor/bin/phpstan analyse src --generate-baseline --allow-empty-baseline",
+		"fix": [
+			"@putenv PHP_CS_FIXER_IGNORE_ENV=true",
+			"@php vendor/bin/php-cs-fixer fix src"
+		]
+	}
+}
