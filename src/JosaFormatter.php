@@ -322,8 +322,8 @@ final class JosaFormatter{
 
 	/** @phpstan-param array{0: string, 1: string} $josaPair */
 	public function replaceStringByJongSung(string $str, ?array $josaPair, int $jongSungType) : string{
-		if($josaPair != null){
-			if($josaPair[0] == "으로"){
+		if($josaPair !== null){
+			if($josaPair[0] === "으로"){
 				$useFirst = $jongSungType == 1;
 			}else{
 				$useFirst = $jongSungType > 0;
